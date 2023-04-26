@@ -1,0 +1,88 @@
+###
+
+POST http://127.0.0.1:3000/signup HTTP/1.1
+Content-type: application/json
+
+{
+  "email": "tm@tm.ru",
+  "password": "qqqqqqqq",
+  "name": "Tm user",
+  "about": "Ученный",
+  "avatar": "https://www.rgo.ru/sites/default/files/styles/head_image_article/public/1034295-e1477344635669-1.jpg?itok=4U4Dw9en"
+}
+
+###
+
+POST http://127.0.0.1:3000/signin HTTP/1.1
+Content-type: application/json
+
+{
+  "email": "tm@tm.ru",
+  "password": "qqqqqqqq"
+}
+
+###
+
+GET http://127.0.0.1:3000/users HTTP/1.1
+Content-type: application/json
+
+###
+
+GET http://127.0.0.1:3000/users/me HTTP/1.1
+Content-type: application/json
+
+###
+
+GET http://127.0.0.1:3000/users/6437c66c94212c1750ba36e8 HTTP/1.1
+Content-type: application/json
+
+###
+
+PATCH http://127.0.0.1:3000/users/me/avatar HTTP/1.1
+Content-type: application/json
+
+{
+  "avatar": "https://www.rgo.ru/sites/test3#"
+}
+
+###
+
+PATCH http://127.0.0.1:3000/users/me HTTP/1.1
+Content-type: application/json
+
+{
+  "name": "User Tima",
+  "about": "Student"
+}
+
+###
+
+GET http://127.0.0.1:3000/cards HTTP/1.1
+Content-type: application/json
+
+###
+
+POST http://127.0.0.1:3000/cards HTTP/1.1
+Content-type: application/json
+
+{
+  "name": "Альпы 2",
+  "link": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/70/da/5d/hiver-2020.jpg?w=1200&h=-1&s=1"
+}
+
+###
+
+DELETE http://127.0.0.1:3000/cards/643b068e53a363da2eacb722 HTTP/1.1
+Content-type: application/json
+
+###
+
+PUT http://127.0.0.1:3000/cards/6437dbef1434726643694e48/likes HTTP/1.1
+Content-type: application/json
+
+###
+
+DELETE http://127.0.0.1:3000/cards/6437dbef1434726643694e48/likes HTTP/1.1
+Content-type: application/json
+
+###

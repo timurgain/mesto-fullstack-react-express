@@ -1,0 +1,15 @@
+.profile__caption {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  column-gap: 18px;
+  row-gap: 16px;
+  align-items: baseline;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__caption {
+    justify-items: center;
+    column-gap: 14px;
+    row-gap: 10px;
+  }
+}

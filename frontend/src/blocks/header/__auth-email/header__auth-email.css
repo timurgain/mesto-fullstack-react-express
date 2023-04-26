@@ -1,0 +1,18 @@
+.header__auth-email {
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 1);
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .header__auth-email {
+
+  }
+
+}

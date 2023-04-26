@@ -1,0 +1,10 @@
+.header__menu_type_mobile {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+  justify-content: center;
+  align-items: center;
+  height: 142px;
+  width: 100%;
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
+}

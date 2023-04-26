@@ -1,0 +1,12 @@
+.card__caption {
+  background-color: white;
+  min-height: 79px;
+  padding: 0 7.1%;
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  align-items: center;
+  row-gap: 3px;
+}
+

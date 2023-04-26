@@ -1,0 +1,9 @@
+.popup__header_type_avatar {
+  margin: 0 0 54px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__header_type_avatar {
+    margin: 0 0 54px 0;
+  }
+}

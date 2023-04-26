@@ -1,0 +1,15 @@
+.header__menu {
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+
+  .header__menu {
+    flex-direction: column;
+  }
+
+}

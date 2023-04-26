@@ -1,0 +1,81 @@
+@import url(./vendors/normalize.css);
+@import url(./vendors/fonts/fonts.css);
+
+@import url(./blocks/page/page.css);
+@import url(./blocks/root/root.css);
+
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/_type/header_type_mobile-menu.css);
+@import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__auth-email/header__auth-email.css);
+@import url(./blocks/header/__auth-btn/header__auth-btn.css);
+@import url(./blocks/header/__menu/header__menu.css);
+@import url(./blocks/header/__menu/_type/header__menu_type_mobile.css);
+@import url(./blocks/header/__menu-btn/header__menu-btn.css);
+
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__header/auth__header.css);
+@import url(./blocks/auth/__form/auth__form.css);
+@import url(./blocks/auth/__field/auth__feild.css);
+@import url(./blocks/auth/__input/auth__input.css);
+@import url(./blocks/auth/__error/auth__error.css);
+@import url(./blocks/auth/__save-btn/auth__save-btn.css);
+@import url(./blocks/auth/__footnote/auth__footnote.css);
+
+@import url(./blocks/content/content.css);
+
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__add-btn/profile__add-btn.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__description/profile__description.css);
+@import url(./blocks/profile/__edit-btn/profile__edit-btn.css);
+@import url(./blocks/profile/__figure/profile__figure.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__caption/profile__caption.css);
+
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/elements/__cards/elements__cards.css);
+
+@import url(./blocks/card/card.css);
+@import url(./blocks/card/__image/card__image.css);
+@import url(./blocks/card/__caption/card__caption.css);
+@import url(./blocks/card/__header/card__header.css);
+@import url(./blocks/card/__like-btn/card__like-btn.css);
+@import url(./blocks/card/__like-btn/_active/card__like-btn_active.css);
+@import url(./blocks/card/__like-counter/card__like-counter.css);
+@import url(./blocks/card/__like-counter/_active/card__like-counter_active.css);
+@import url(./blocks/card/__trash-btn/card__trash-btn.css);
+@import url(./blocks/card/__trash-btn/_visible/card__trash-btn_visible.css);
+
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_confirm.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_avatar.css);
+@import url(./blocks/popup/__container/_type/popup__container_type_tooltip.css);
+@import url(./blocks/popup/__close-btn/popup__close-btn.css);
+@import url(./blocks/popup/__header/popup__header.css);
+@import url(./blocks/popup/__header/_type/popup__header_type_confirm.css);
+@import url(./blocks/popup/__header/_type/popup__header_type_avatar.css);
+@import url(./blocks/popup/__info-tooltip/popup__info-tooltip.css);
+@import url(./blocks/popup/__sign/popup__sign.css);
+@import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__form/_type/popup__form_type_confirm.css);
+@import url(./blocks/popup/__field/popup__field.css);
+@import url(./blocks/popup/__input/popup__input.css);
+@import url(./blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(./blocks/popup/__error/popup__error.css);
+@import url(./blocks/popup/__error/_visible/popup__error_visible.css);
+@import url(./blocks/popup/__save-btn/popup__save-btn.css);
+@import url(./blocks/popup/__save-btn/_disabled/popup__save-btn_disabled.css);
+
+@import url(./blocks/popup/__card/popup__card.css);
+@import url(./blocks/popup/__image/popup__image.css);
+@import url(./blocks/popup/__caption/popup__caption.css);
+
+@import url(./blocks/card-popup/card-popup.css);  /* modifier */
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__paragraph/footer__paragraph.css);
+
+@import url(./blocks/link/link.css);

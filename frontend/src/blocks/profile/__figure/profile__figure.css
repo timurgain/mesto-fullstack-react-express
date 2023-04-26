@@ -1,0 +1,16 @@
+.profile__figure {
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+  align-items: center;
+  margin: 0;
+  max-width: 80%;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__figure {
+    flex-direction: column;
+    row-gap: 26px;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,31 @@
+.auth__save-btn {
+  margin: auto 0 0 0;
+  width: 100%;
+  height: 50px;
+  border-radius: 2px;
+  border: none;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 1);
+  transition: background-color .2s linear;
+}
+
+.auth__save-btn:enabled:hover {
+  background-color: rgba(255, 255, 255, .85);
+}
+
+.auth__save-btn:disabled {
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 767px) {
+
+  .auth__save-btn {
+    font-size: 16px;
+  }
+
+}

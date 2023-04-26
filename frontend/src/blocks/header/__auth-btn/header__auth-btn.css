@@ -1,0 +1,22 @@
+.header__auth-btn {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 767px) {
+
+  .header__auth-btn {
+    font-size: 14px;
+  }
+
+}

@@ -1,0 +1,13 @@
+.auth__feild {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 32px 0;
+  width: 100%
+}
+
+.auth__feild:nth-child(2) {
+  margin: 0;
+}

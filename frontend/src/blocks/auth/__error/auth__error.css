@@ -1,0 +1,16 @@
+.auth__error {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  line-height: 1.25;
+  color: #FF0000;
+  position: absolute;
+  top: 26px;
+  left: 0;
+  /* visibility: hidden; */
+}
