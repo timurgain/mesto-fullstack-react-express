@@ -67,19 +67,19 @@ function App() {
     }
 
     // another API checks authUser token according to edu task
-    const token = localStorage.getItem("token");
-    if (token) {
-      auth
-        .authorize(token)
-        .then((data) => {
-          if (data.data.email) {
-            setLoggedIn(true);
-            setAuthUser(data.data);
-            navigate("/", { replace: true });
-          }
-        })
-        .catch(reportError);
-    }
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   auth
+    //     .authorize(token)
+    //     .then((data) => {
+    //       if (data.data.email) {
+    //         setLoggedIn(true);
+    //         setAuthUser(data.data);
+    //         navigate("/", { replace: true });
+    //       }
+    //     })
+    //     .catch(reportError);
+    // }
   }, [navigate, loggedIn]);
 
   function closeAllPopups() {
@@ -200,10 +200,7 @@ function App() {
   function handleLogin(email, password) {
     auth
       .login(email, password)
-      .then((data) => {
-        if (!data.token)
-          throw new Error("There is no token from the server while login");
-        localStorage.setItem("token", data.token);
+      .then(() => {
         setLoggedIn(true);
         navigate("/", { replace: true });
       })

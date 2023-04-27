@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const cors = require('./middlewares/cors')
 const { errors } = require('celebrate');
 
 const config = require('./config');
@@ -20,6 +21,9 @@ app.use(requestLogger);
 
 // use cookie parser
 app.use(cookieParser());
+
+// use cors
+app.use(cors)
 
 // use routes
 app.use('/', routes);

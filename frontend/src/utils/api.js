@@ -1,13 +1,16 @@
-const baseUrlServer = 'https://mesto.nomoreparties.co/v1/cohort-57';
-const tokenServer = '411b4699-7ab1-47ad-aa53-52186a7d47e6';
+import { backend } from "../config.js";
+
+/**
+ * info: backend puts jwt in httpOnly cookies
+ */
 
 class Api {
-  constructor(baseUrl, token) {
+  constructor(baseUrl) {
     this._baseUrl = baseUrl;
     this._options = {
+      credentials: 'include', // send cookie including httpOnly cookies with jwt
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
-        'authorization': token,
       }
     }
   }
@@ -80,6 +83,6 @@ class Api {
   }
 }
 
-const api = new Api(baseUrlServer, tokenServer);
+const api = new Api(backend.baseUrl);
 
 export default api

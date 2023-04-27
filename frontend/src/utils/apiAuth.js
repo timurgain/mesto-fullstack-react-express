@@ -1,54 +1,65 @@
-const BASE_AUTH_URL = "https://auth.nomoreparties.co";
+import { backend } from '../config.js';
+
+/**
+ * info: backend puts jwt in httpOnly cookies
+ */
 
 // register - create user
 function register(email, password) {
   const options = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
+      'Content-type': 'application/json; charset=UTF-8',
     },
     body: JSON.stringify({
       email: email,
       password: password,
     }),
   };
-  return fetch(`${BASE_AUTH_URL}/signup`, options).then(convertResponseToJson);
+  return fetch(`${backend.baseUrl}/signup`, options).then(responseToJson);
 }
 
 // login - get token
 function login(email, password) {
   const options = {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
+    method: 'POST',
+    credentials: 'include', // send cookie including httpOnly cookies with jwt
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
     body: JSON.stringify({
       email: email,
       password: password,
     }),
   };
-  return fetch(`${BASE_AUTH_URL}/signin`, options).then(convertResponseToJson);
+  return fetch(`${backend.baseUrl}/signin`, options).then(responseToResolve);
 }
 
-// authorize - check token
-function authorize(token) {
+// authorize - check token (contained in httpOnly cookies)
+function authorize() {
   const options = {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      Authorization: `Bearer ${token}`,
-    },
+    method: 'GET',
+    credentials: 'include', // send cookie including httpOnly cookies with jwt
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
   };
-  return fetch(`${BASE_AUTH_URL}/users/me`, options).then(convertResponseToJson);
+  return fetch(`${backend.baseUrl}/users/me`, options).then(responseToResolve);
 }
 
-function convertResponseToJson(response) {
+function responseToJson(response) {
   if (!response.ok) {
     return response.text().then((text) => {
       throw new Error(text);
     });
   }
   return response.json();
+}
+
+function responseToResolve(response) {
+  console.log(response);
+  if (!response.ok) {
+    return response.text().then((text) => {
+      throw new Error(text);
+    });
+  }
+  return Promise.resolve();
 }
 
 export { register, login, authorize };
