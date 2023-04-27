@@ -2,14 +2,15 @@ const router = require('express').Router();
 const jsonParser = require('express').json();
 const routerUsers = require('./users');
 const routerCards = require('./cards');
-const { login, createUser } = require('../controllers/users');
+const { login, createUser, logout } = require('../controllers/users');
 const { readCookieCredentials } = require('../middlewares/auth');
 const { signupValidation, signinValidation } = require('../middlewares/validation/user');
 const { UrlNotFoundError } = require('../errors/castomErrors');
 
-// registration and login
+// registration, login, logout
 router.post('/signup', jsonParser, signupValidation, createUser);
 router.post('/signin', jsonParser, signinValidation, login);
+router.post('/logout', readCookieCredentials, logout);
 
 // main app routes, required to be authenticated
 router.use('/users', readCookieCredentials, routerUsers);

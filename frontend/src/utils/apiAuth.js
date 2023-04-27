@@ -40,7 +40,17 @@ function authorize() {
     credentials: 'include', // send cookie including httpOnly cookies with jwt
     headers: { 'Content-type': 'application/json; charset=UTF-8' },
   };
-  return fetch(`${backend.baseUrl}/users/me`, options).then(responseToResolve);
+  return fetch(`${backend.baseUrl}/users/me`, options).then(responseToJson);
+}
+
+// logout - clear httpOnly cookie on the backend side
+function logout() {
+  const options = {
+    method: 'POST',
+    credentials: 'include', // send cookie including httpOnly cookies with jwt
+    headers: { 'Content-type': 'application/json; charset=UTF-8' },
+  };
+  return fetch(`${backend.baseUrl}/logout`, options).then(responseToResolve);
 }
 
 function responseToJson(response) {
@@ -53,7 +63,6 @@ function responseToJson(response) {
 }
 
 function responseToResolve(response) {
-  console.log(response);
   if (!response.ok) {
     return response.text().then((text) => {
       throw new Error(text);
@@ -62,4 +71,4 @@ function responseToResolve(response) {
   return Promise.resolve();
 }
 
-export { register, login, authorize };
+export { register, login, authorize, logout };

@@ -56,7 +56,21 @@ function App() {
   React.useEffect(escClose, [isPopupOpen, escClose]);
 
   React.useEffect(() => {
-    // API gets currentUser and cards according to edu task
+
+    // automatic login if user has valid jwt in httpOnly cookies
+    auth
+      .authorize()
+      .then((data) => {
+        if (data && data.email) {
+          setLoggedIn(true);
+          setAuthUser(data);
+          navigate("/", { replace: true });
+        }
+    })
+    // 401 error goes to catch, it ok if jwt expired or doesnt exist, therefore just console.log
+    .catch(console.log);
+
+    // fetch data if user is loggined,
     if (loggedIn) {
       Promise.all([api.getUserMe(), api.getCards()])
         .then(([userData, cardsData]) => {
@@ -66,20 +80,6 @@ function App() {
         .catch(reportError);
     }
 
-    // another API checks authUser token according to edu task
-    // const token = localStorage.getItem("token");
-    // if (token) {
-    //   auth
-    //     .authorize(token)
-    //     .then((data) => {
-    //       if (data.data.email) {
-    //         setLoggedIn(true);
-    //         setAuthUser(data.data);
-    //         navigate("/", { replace: true });
-    //       }
-    //     })
-    //     .catch(reportError);
-    // }
   }, [navigate, loggedIn]);
 
   function closeAllPopups() {
@@ -212,10 +212,14 @@ function App() {
   }
 
   function handleLogout() {
-    localStorage.removeItem("token");
-    setLoggedIn(false);
-    setAuthUser({ email: "" });
-    navigate("/sign-in", { replace: true });
+    auth
+      .logout()
+      .then(() => {
+        setLoggedIn(false);
+        setAuthUser({ email: "" });
+        navigate("/sign-in", { replace: true });
+      })
+      .catch(reportError);
   }
 
   return (

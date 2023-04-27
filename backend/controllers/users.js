@@ -92,6 +92,19 @@ function login(req, res, next) {
     .catch(next);
 }
 
+function logout(req, res, next) {
+  // middleware.auth takes jwt from cookie and decode in req.user
+  UserModel.findOne({ _id: req.user._id })
+    .then((queryObj) => {
+      if (!queryObj) throw new NullQueryResultError();
+      res
+        .clearCookie('jwt', { httpOnly: true })
+        .status(constants.HTTP_STATUS_OK)
+        .end();
+    })
+    .catch(next);
+}
+
 module.exports = {
   getUsers,
   getUserById,
@@ -100,4 +113,5 @@ module.exports = {
   patchUserMe,
   patchUserMeAvatar,
   login,
+  logout,
 };
