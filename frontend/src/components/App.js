@@ -67,7 +67,7 @@ function App() {
           navigate("/", { replace: true });
         }
     })
-    // 401 error goes to catch, it ok if jwt expired or doesnt exist, therefore just console.log
+    // 401 error goes to catch, it's ok if jwt expired or doesnt exist, therefore just console.log
     .catch(console.log);
 
     // fetch data if user is loggined,

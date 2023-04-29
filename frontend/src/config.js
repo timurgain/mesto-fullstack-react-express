@@ -1,6 +1,7 @@
 const config = {
   backend: {
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://api.timur.nomoredomains.monster',
+    // baseUrl: 'http://localhost:3000',
   },
 };
 

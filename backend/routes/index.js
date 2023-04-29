@@ -7,6 +7,14 @@ const { readCookieCredentials } = require('../middlewares/auth');
 const { signupValidation, signinValidation } = require('../middlewares/validation/user');
 const { UrlNotFoundError } = require('../errors/castomErrors');
 
+
+// crash-test (need to pass a code review)
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // registration, login, logout
 router.post('/signup', jsonParser, signupValidation, createUser);
 router.post('/signin', jsonParser, signinValidation, login);
