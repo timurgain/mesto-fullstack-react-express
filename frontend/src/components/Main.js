@@ -1,6 +1,9 @@
-import React from "react";
-import Card from "./Card";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import React from 'react';
+import Card from './Card';
+import {
+  CurrentUserContext,
+  defaultUser,
+} from '../contexts/CurrentUserContext';
 
 function Main({
   cards,
@@ -35,20 +38,28 @@ function Main({
         <figure className="profile__figure">
           <div
             className="profile__avatar"
-            style={{ backgroundImage: `url(${currentUser.avatar})` }}
+            style={{
+              backgroundImage: `url(${
+                !currentUser.avatar ? defaultUser.avatar : currentUser.avatar
+              })`,
+            }}
             onClick={onEditAvatar}
             aria-label="Изображение пользователя"
           />
 
           <figcaption className="profile__caption">
-            <h1 className="profile__name">{currentUser.name}</h1>
+            <h1 className="profile__name">{
+              !currentUser.name ? defaultUser.name : currentUser.name
+            }</h1>
             <button
               className="profile__edit-btn"
               type="button"
               onClick={onEditProfile}
               aria-label="Кнопка редактирования профиля пользователя"
             />
-            <p className="profile__description">{currentUser.about}</p>
+            <p className="profile__description">{
+              !currentUser.about ? defaultUser.about : currentUser.about
+            }</p>
           </figcaption>
         </figure>
 
