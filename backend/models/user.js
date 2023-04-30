@@ -39,7 +39,4 @@ const userSchema = mongoose.Schema({
   __v: { type: Number, select: false },
 });
 
-// explicitly excluding the password field from the response, field's 'select: false' doesnt work
-// userSchema.set('toJSON', { transform: function(_, ret) { delete ret.password; return ret;} });
-
 module.exports = mongoose.model('user', userSchema);

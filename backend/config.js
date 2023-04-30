@@ -21,7 +21,7 @@ const devOrigins = [
   'https://www.timur.nomoredomains.monster',
   'http://api.timur.nomoredomains.monster/',
   'https://api.timur.nomoredomains.monster/',
-]
+];
 
 const config = {
   app: {

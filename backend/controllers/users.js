@@ -8,6 +8,21 @@ const {
 } = require('../errors/castomErrors');
 const config = require('../config');
 
+// auxiliary func
+
+function updateUser(req, res, data) {
+  return UserModel.findByIdAndUpdate({ _id: req.user._id }, data, {
+    returnDocument: 'after',
+    runValidators: true,
+  })
+    .then((queryObj) => {
+      if (!queryObj) throw new NullQueryResultError();
+      res.send(queryObj);
+    });
+}
+
+// controllers
+
 function getUsers(req, res, next) {
   UserModel.find({})
     .then((queryObj) => res.send(queryObj))
@@ -33,9 +48,6 @@ function createUser(req, res, next) {
     .then((hash) => UserModel.create({
       password: hash, email, name, about, avatar,
     }))
-    // explicitly excluding the password from the response,
-    // schema option 'select: false' doesnt work in the create case :(
-    // .then((user) => UserModel.findById(user._id).select('-password'))
     .then((queryObj) => {
       const user = queryObj.toObject();
       delete user.password;
@@ -45,24 +57,12 @@ function createUser(req, res, next) {
 }
 
 function getUserMe(req, res, next) {
-  // middleware.auth takes jwt from cookie and decode in req.user
   UserModel.findOne({ _id: req.user._id })
     .then((queryObj) => {
       if (!queryObj) throw new NullQueryResultError();
       res.send(queryObj);
     })
     .catch(next);
-}
-
-function updateUser(req, res, data) {
-  return UserModel.findByIdAndUpdate({ _id: req.user._id }, data, {
-    returnDocument: 'after',
-    runValidators: true,
-  })
-    .then((queryObj) => {
-      if (!queryObj) throw new NullQueryResultError();
-      res.send(queryObj);
-    });
 }
 
 function patchUserMe(req, res, next) {
@@ -93,7 +93,6 @@ function login(req, res, next) {
 }
 
 function logout(req, res, next) {
-  // middleware.auth takes jwt from cookie and decode in req.user
   UserModel.findOne({ _id: req.user._id })
     .then((queryObj) => {
       if (!queryObj) throw new NullQueryResultError();

@@ -7,14 +7,14 @@ function cors(req, res, next) {
 
   if (config.cors.allowOrigins.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Credentials', true);  // for jwt in httpOnly cookies
+    res.header('Access-Control-Allow-Credentials', true); // for jwt in httpOnly cookies
   }
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', config.cors.allowMethods.join(','));
     res.header('Access-Control-Allow-Headers', requestHeaders);
     return res.end();
   }
-  next();
+  return next();
 }
 
 module.exports = cors;

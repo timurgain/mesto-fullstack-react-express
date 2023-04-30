@@ -6,7 +6,7 @@ const {
 const { userInfoValidation, avatarValidation, userIdUrlParamsValidation } = require('../middlewares/validation/user');
 
 router.get('/', getUsers);
-router.get('/me', getUserMe);
+router.get('/me', getUserMe); // also used for automatic login if user data is returned
 router.get('/:userId', userIdUrlParamsValidation, getUserById);
 
 router.patch('/me', jsonParser, userInfoValidation, patchUserMe);
